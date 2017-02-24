@@ -3,6 +3,6 @@ import { ActivityIndicator, Text } from 'react-native'
 
 export default ({ isLoading }) => {
   return (
-    isLoading ? <Text>Loading</Text> : null
+    isLoading ? <ActivityIndicator animating={true} size='large'/> : null
   )
 }
