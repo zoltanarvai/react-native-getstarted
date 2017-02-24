@@ -5,7 +5,7 @@ import thunk from 'redux-thunk';
 import rootReducer from './src/reducers'
 import devToolsEnhancer from 'remote-redux-devtools'
 import ContactsContainer from './src/containers/ContactsContainer'
-import { loadContacts } from './src/actions/loadContacts'
+import { loadContacts } from './src/actions/contacts'
 
 import {
   AppRegistry,
@@ -39,7 +39,7 @@ export default class ContactsManager extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 15,
+    marginTop: 55,
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
