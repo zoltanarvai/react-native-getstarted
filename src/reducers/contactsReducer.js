@@ -1,3 +1,11 @@
+import * as constants from '../actions/constants'
+
 export default (state = {}, action) => {
-  return state
+  switch(action.type){
+    case constants.SET_CONTACTS : {
+      return action.payload.contacts
+    }
+    default:
+      return state
+  }
 }
