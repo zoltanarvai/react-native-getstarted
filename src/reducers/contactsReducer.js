@@ -38,14 +38,17 @@ export default (state = initialState, action) => {
       return state
     }
     case constants.ADD_CONTACT_FAILED: {
-        return data.reduce((acc, item)=>{
-          if(item._tempId === action._tempId){
+        return state.data.reduce((acc, item)=>{
+          if(item._tempId === action.payload.error._tempId){
             acc.push({
               ...item,
               error: action.payload.error
             })
+
+            return acc
           }else{
             acc.push(item)
+            return acc
           }
         },[])
     }

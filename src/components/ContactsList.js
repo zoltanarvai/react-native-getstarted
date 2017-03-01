@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Text, ListView } from 'react-native'
+import { View, Text, ListView, StyleSheet } from 'react-native'
 
 export default class ContactsList extends Component{
     constructor(){
@@ -10,17 +10,31 @@ export default class ContactsList extends Component{
       })
 
       this.dataSource = this.ds.cloneWithRows([])
-
     }
 
     render(){
       const { contacts} = this.props
       const dataSource = this.ds.cloneWithRows(contacts)
-
-      const row = data => <Text>{`${data.firstName} ${data.lastName}`}</Text>
+      debugger;
+      
+      const row = data => {
+        return (<View style={data.error ? styles.error : styles.normal}>
+          <Text>{`${data.firstName} ${data.lastName}`}</Text>
+        </View>)
+      }
 
       return (
-        <ListView  dataSource={dataSource} renderRow={row}/>
+        <ListView dataSource={dataSource} renderRow={row}/>
       )
     }
 }
+
+const styles = StyleSheet.create({
+  error: {
+    borderWidth: 1,
+    borderColor: 'red'
+  },
+  normal: {
+    borderWidth: 0
+  }
+})
